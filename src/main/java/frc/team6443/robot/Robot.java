@@ -37,11 +37,6 @@ public class Robot extends IterativeRobot {
         autonomy = null;
         teleop = new TeleopMode();
 
-        //CameraServer.getInstance().putVideo();
-        NetTables.setBoolean("left", false);
-        NetTables.setBoolean("center", false);
-        NetTables.setBoolean("right", false);
-        NetTables.flush();
         //format 1 is kMJPEG
         VideoMode vm = new VideoMode(1, 640, 480, 60);
         CameraServer.getInstance().startAutomaticCapture().setVideoMode(vm);
