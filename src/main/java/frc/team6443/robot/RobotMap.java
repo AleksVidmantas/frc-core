@@ -21,34 +21,4 @@ public class RobotMap {
     public static final int RightEncoderA = 12;//2
     public static final int RightEncoderB = 13;//3
 
-    //elevator motors
-    public static final int ElevatorSingleMotor = 7;
-    public static final int ElevatorRedLineMotor1 = 7;
-    public static final int ElevatorRedLineMotor2 = 8;
-    public static final int ElevatorRedLineMotor3 = 9;
-    public static final int ElevatorRedLineMotor4 = 10;
-
-    //elevator sensors
-    public static final int ElevatorScaleLimit = 7;
-    public static final int ElevatorSwitchLimit = 4;
-    public static final int ElevatorBottomLimit = 6;
-    public static final int ElevatorEncoderA = 2;//12
-    public static final int ElevatorEncoderB = 3;//11
-
-    //flywheel motors
-    public static final int FlywheelLeftMotor = 4;
-    public static final int FlywheelRightMotor = 5;
-
-    //rotation motor
-    public static final int RotationMotor = 6;
-
-    //rotation sensors
-    public static final int RotationEncoderA = 8;
-    public static final int RotationEncoderB = 9;
-
-    //code settings
-    public static final boolean BackUpDistance = false;
-    public static final boolean BackUpAngle = false;
-    public static final boolean RedLine = true;
-    public static final boolean Logger = true;
 }

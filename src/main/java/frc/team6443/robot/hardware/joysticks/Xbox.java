@@ -5,11 +5,13 @@ import edu.wpi.first.wpilibj.XboxController;
 
 
 /**
- * Wrapper for an Xbox 360 Xbox. Provides clearer interface with button and axis inputs.
+ * Wrapper for an Xbox 360 Xbox. Provides clearer interface with button and axis inputs.  Extends
+ * GenericHID for flexibility/swappability.
  *
  * @author Patrick Higgins
  */
 public class Xbox extends GenericHID {  //extends GenericHID for flexibility
+    //Xbox is essentially a simpler XboxController
     public XboxController controller;
 
     /**
@@ -25,6 +27,8 @@ public class Xbox extends GenericHID {  //extends GenericHID for flexibility
     public XboxController getJoystick(XboxController xbox) {
         return xbox;
     }
+
+
 
     public double leftStickX() {
         return controller.getRawAxis(0);
@@ -147,5 +151,13 @@ public class Xbox extends GenericHID {  //extends GenericHID for flexibility
     @Override
     public double getY(Hand hand) {
         return 0;
+    }
+
+    public double reduceNoise(double x){
+        if(Math.abs(x) < .2){
+            return 0;
+        }else{
+            return x;
+        }
     }
 }
