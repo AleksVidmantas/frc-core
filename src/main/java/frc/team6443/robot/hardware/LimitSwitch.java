@@ -2,7 +2,8 @@ package frc.team6443.robot.hardware;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 /**
- * LimitSwitch class for limit switches
+ * LimitSwitch class for limit switches.  Essentially a clearer interpretation
+ * of the DigitalInput class *specifically* for LimiitSwitches.
  * */
 public class LimitSwitch {
     private DigitalInput limit;

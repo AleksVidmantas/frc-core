@@ -2,6 +2,9 @@ package frc.team6443.robot.hardware;
 
 import edu.wpi.first.wpilibj.Encoder;
 
+/**
+ * TODO: fix
+ * */
 public class Encoders {
     private Encoder encoder;
 

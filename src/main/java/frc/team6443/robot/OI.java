@@ -35,8 +35,8 @@ public class OI {
      * Constructor for OI.
      */
     public OI() {
-        primary = new Xbox(new XboxController(PRIMARY_PORT_NUMBER));
-        secondary = new Xbox(new XboxController(SECONDARY_PORT_NUMBER));
+        primary = new Xbox(PRIMARY_PORT_NUMBER);
+        secondary = new Xbox(SECONDARY_PORT_NUMBER);
         buttons = new HashMap<String, Button>(4);
     }
 

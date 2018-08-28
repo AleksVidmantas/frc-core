@@ -1,28 +1,24 @@
 package frc.team6443.robot.hardware.joysticks;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 
 /**
- * Wrapper for an Xbox 360 Xbox. Provides clearer interface with button and axis inputs.  Extends
- * GenericHID for flexibility/swappability.
+ * Recreation of WPI's Xbox class.  This version is much easier to use.  Essentially still a GenericHID object.
  *
- * @author Patrick Higgins
+ * @author Patrick Higgins, Aleks Vidmantas
  */
 public class Xbox extends XboxController {  //extends GenericHID for flexibility
-    //Xbox is essentially a simpler XboxController
-    private XboxController controller;
 
     /**
      * Constructor for Xbox.
      *
-     * @param controller the xbox's joystick.
+     *
      */
-    public Xbox(XboxController controller) {
-        super(controller.getPort());
-        this.controller = controller;
+    public Xbox(int PORT) {
+        super(PORT);
     }
+
 
     public XboxController getJoystick(XboxController xbox) {
         return xbox;
@@ -31,119 +27,120 @@ public class Xbox extends XboxController {  //extends GenericHID for flexibility
 
 
     public double leftStickX() {
-        return controller.getRawAxis(0);
+        //return getY(Hand.kLeft); alternative soluton
+        return getRawAxis(0);
     }
 
     /**
      * @return The value of the Y axis of the left stick.
      */
     public double leftStickY() {
-        return controller.getRawAxis(1);
+        return getRawAxis(1);
     }
 
     /**
      * @return The value of the X axis of the right stick.
      */
     public double rightStickX() {
-        return controller.getRawAxis(4);
+        return getRawAxis(4);
     }
 
     /**
      * @return The value of the Y axis of the right stick.
      */
     public double rightStickY() {
-        return controller.getRawAxis(5);
+        return getRawAxis(5);
     }
 
     /**
      * @return The value of the axis for the left trigger.
      */
     public double leftTrigger() {
-        return controller.getRawAxis(2);
+        return getRawAxis(2);
     }
 
     /**
      * @return The value of the axis for the right trigger.
      */
     public double rightTrigger() {
-        return controller.getRawAxis(3);
+        return getRawAxis(3);
     }
 
     /**
      * @return the value of the left bumper.
      */
     public boolean leftBumper() {
-        return controller.getRawButton(5);
+        return getRawButton(5);
     }
 
     /**
      * @return the value of the right bumper.
      */
     public boolean rightBumper() {
-        return controller.getRawButton(6);
+        return getRawButton(6);
     }
 
     /**
      * @return the value of the left joystick button.
      */
     public boolean leftStickButton() {
-        return controller.getRawButton(9);
+        return getRawButton(9);
     }
 
     /**
      * @return the value of the right joystick button.
      */
     public boolean rightStickButton() {
-        return controller.getRawButton(10);
+        return getRawButton(10);
     }
 
     /**
      * @return the value of the A button.
      */
     public boolean A() {
-        return controller.getRawButton(1);
+        return getRawButton(1);
     }
 
     /**
      * @return the value of the B button.
      */
     public boolean B() {
-        return controller.getRawButton(2);
+        return getRawButton(2);
     }
 
     /**
      * @return the value of the X button.
      */
     public boolean X() {
-        return controller.getRawButton(3);
+        return getRawButton(3);
     }
 
     /**
      * @return the value of the Y button.
      */
     public boolean Y() {
-        return controller.getRawButton(4);
+        return getRawButton(4);
     }
 
     //PLEASE FIND THE ACTUAL NAME FOR THESE
     public boolean seven() {
-        return controller.getRawButton(7);
+        return getRawButton(7);
     }
     public boolean eight() {
-        return controller.getRawButton(8);
+        return getRawButton(8);
     }
 
     public void setRumble(boolean isLeft, float strength){
         RumbleType rumbleSide = (isLeft) ? RumbleType.kLeftRumble : RumbleType.kRightRumble;
-        controller.setRumble(rumbleSide, strength);
+        setRumble(rumbleSide, strength);
     }
 
     public void killRumble(){
-        controller.setRumble(RumbleType.kLeftRumble, 0);
-        controller.setRumble(RumbleType.kRightRumble, 0);
+        setRumble(RumbleType.kLeftRumble, 0);
+        setRumble(RumbleType.kRightRumble, 0);
     }
 
-    
+
     @Override
     public double getX(Hand hand) {
         return 0;
@@ -154,9 +151,6 @@ public class Xbox extends XboxController {  //extends GenericHID for flexibility
         return 0;
     }
 
-    public XboxController getController() {
-        return controller;
-    }
 
     //not required, as falconDrive has it's own filtration system for noise zones
     public static double reduceNoise(double x){
