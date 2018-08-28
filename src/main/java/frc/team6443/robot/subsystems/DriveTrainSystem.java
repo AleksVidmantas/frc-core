@@ -31,6 +31,7 @@ public class DriveTrainSystem extends Subsystem {
     // Use it whenever you want your robot to move.
     private DifferentialDrive drive;
 
+
     /**
      * Constructor for DriveTrainSystem.
      */
@@ -39,15 +40,20 @@ public class DriveTrainSystem extends Subsystem {
                 new Spark(RobotMap.BackLeftMotor));
         rightMotors = new SpeedControllerGroup(new Spark(RobotMap.FrontRightMotor),
                 new Spark(RobotMap.BackRightMotor));
+
         drive = new DifferentialDrive(leftMotors, rightMotors);
-        leftMotors.setInverted(true);
+
+        //leftMotors.setInverted(true); this line is concerning
+
         leftEncoder = new Encoders(RobotMap.LeftEncoderA, RobotMap.LeftEncoderB);
         rightEncoder = new Encoders(RobotMap.RightEncoderA, RobotMap.RightEncoderB);
+
         // the driver station will complain for some reason if this isn't setSpeed so it's pretty necessary.
         // [FOR SCIENCE!]
         drive.setSafetyEnabled(false);
+
         reversed = false;
-        drive.setMaxOutput(1);
+        //drive.setMaxOutput(1); LLOOOOK HEEREERE for demos, PLEASE of all that is holy limit HERE
     }
 
     @Override
@@ -102,10 +108,10 @@ public class DriveTrainSystem extends Subsystem {
 //        Logger.log(LoggerSystems.Drive, "reset drive encoders");
     }
 
-    //Not sure if good format, but these values are only used for this method
-    //Vector2d vector = new Vector2d(0,0);
-    //double differential = 0;
+    //this data is only used for falconDrive
     boolean shifted = false;
+    private double differential;
+    private double power;
     public void upShift(){ shifted = true;}
     public void downShift(){shifted = false;}
 
@@ -113,8 +119,6 @@ public class DriveTrainSystem extends Subsystem {
         Vector2d vector = new Vector2d(0,0);
         vector.x = 0;
         vector.y = 0;
-        double differential;
-        double power = 1;
 
         if (Math.abs(leftStickX) < .15) {
             differential = 0;

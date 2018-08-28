@@ -153,7 +153,8 @@ public class Xbox extends GenericHID {  //extends GenericHID for flexibility
         return 0;
     }
 
-    public double reduceNoise(double x){
+    //not required, as falconDrive has it's own filtration system for noise zones
+    public static double reduceNoise(double x){
         if(Math.abs(x) < .2){
             return 0;
         }else{

@@ -96,8 +96,5 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
     }
 
-    /*
-     * Called periodically when the robot is in testing mode.
-     */
 
 }
