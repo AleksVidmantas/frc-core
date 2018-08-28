@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.XboxController;
  *
  * @author Patrick Higgins
  */
-public class Xbox extends GenericHID {  //extends GenericHID for flexibility
+public class Xbox extends XboxController {  //extends GenericHID for flexibility
     //Xbox is essentially a simpler XboxController
-    public XboxController controller;
+    private XboxController controller;
 
     /**
      * Constructor for Xbox.
@@ -143,6 +143,7 @@ public class Xbox extends GenericHID {  //extends GenericHID for flexibility
         controller.setRumble(RumbleType.kRightRumble, 0);
     }
 
+    
     @Override
     public double getX(Hand hand) {
         return 0;
@@ -151,6 +152,10 @@ public class Xbox extends GenericHID {  //extends GenericHID for flexibility
     @Override
     public double getY(Hand hand) {
         return 0;
+    }
+
+    public XboxController getController() {
+        return controller;
     }
 
     //not required, as falconDrive has it's own filtration system for noise zones
