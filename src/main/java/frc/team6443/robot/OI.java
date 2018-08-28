@@ -1,7 +1,6 @@
 package frc.team6443.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.team6443.robot.hardware.joysticks.Xbox;
 
@@ -25,7 +24,7 @@ public class OI {
     private final int SECONDARY_PORT_NUMBER = 1;
 
     //GenericHID for flexibility.  GenericHID offers methods
-    //useful to us.  Xbox() is a 6443 class that extends GenericHID.  Also allows swappability.
+    //useful to us.  Xbox() is a 6443 class that extends GenericHID by extending XboxController.  Also allows swappability.
     private static GenericHID primary;
     private static GenericHID secondary;
 
@@ -43,7 +42,7 @@ public class OI {
     /**
      * @return the primary Joystick associated with this OI object.
      */
-    public static GenericHID getPrimaryControler(){
+    public static GenericHID getPrimary(){
         return primary;
     }
 

@@ -1,7 +1,10 @@
-package org.usfirst.frc.falcons6443.robot.hardware.Joysticks;
+package frc.team6443.robot.hardware.joysticks;
 
 import edu.wpi.first.wpilibj.Joystick;
 
+/**
+ * TODO: fix
+ * */
 public class Playstation {
 
     public Joystick controller;

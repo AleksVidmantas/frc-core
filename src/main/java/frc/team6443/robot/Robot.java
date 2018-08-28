@@ -54,8 +54,6 @@ public class Robot extends TimedRobot {
      * Called periodically when the robot is in disabled mode.  The FPGA WILL stop the robot when this is
      * called, even if you don't explicitly stop the motors.
      */
-
-
     @Override
     public void disabledPeriodic() {
         Scheduler.getInstance().removeAll();
@@ -67,7 +65,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
-        //chooser = new AutoChooser(AutoChooser.Position.UNKNOWN);
         if (autonomy != null) autonomy.start();
     }
 

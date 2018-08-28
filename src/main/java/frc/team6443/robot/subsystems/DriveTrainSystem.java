@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.drive.Vector2d;
 import frc.team6443.robot.RobotMap;
-import frc.team6443.robot.hardware.Encoders;
+import frc.team6443.robot.hardware.EncoderM;
 
 /**
  * Subsystem for the robot's drive train.
@@ -21,8 +21,8 @@ public class DriveTrainSystem extends Subsystem {
     private SpeedControllerGroup leftMotors;
     private SpeedControllerGroup rightMotors;
 
-    private Encoders leftEncoder;
-    private Encoders rightEncoder;
+    private EncoderM leftEncoder;
+    private EncoderM rightEncoder;
 
     private boolean reversed;
     private static final double WheelDiameter = 6;
@@ -36,6 +36,7 @@ public class DriveTrainSystem extends Subsystem {
      * Constructor for DriveTrainSystem.
      */
     public DriveTrainSystem() {
+
         leftMotors = new SpeedControllerGroup(new Spark(RobotMap.FrontLeftMotor),
                 new Spark(RobotMap.BackLeftMotor));
         rightMotors = new SpeedControllerGroup(new Spark(RobotMap.FrontRightMotor),
@@ -43,17 +44,16 @@ public class DriveTrainSystem extends Subsystem {
 
         drive = new DifferentialDrive(leftMotors, rightMotors);
 
-        //leftMotors.setInverted(true); this line is concerning
+        leftMotors.setInverted(true);
 
-        leftEncoder = new Encoders(RobotMap.LeftEncoderA, RobotMap.LeftEncoderB);
-        rightEncoder = new Encoders(RobotMap.RightEncoderA, RobotMap.RightEncoderB);
+        leftEncoder = new EncoderM(RobotMap.LeftEncoderA, RobotMap.LeftEncoderB);
+        rightEncoder = new EncoderM(RobotMap.RightEncoderA, RobotMap.RightEncoderB);
 
-        // the driver station will complain for some reason if this isn't setSpeed so it's pretty necessary.
-        // [FOR SCIENCE!]
-        drive.setSafetyEnabled(false);
+        //motor watchdog, essentially call set(speed) whenever you want it on, else it'll shut off
+        drive.setSafetyEnabled(true);
 
         reversed = false;
-        //drive.setMaxOutput(1); LLOOOOK HEEREERE for demos, PLEASE of all that is holy limit HERE
+        //drive.setMaxOutput(.44); for demos, PLEASE of all that is holy limit HERE
     }
 
     @Override
@@ -86,7 +86,7 @@ public class DriveTrainSystem extends Subsystem {
     }
 
     public double getLeftDistance(){
-        // Encoders clicks per rotation = 850
+        // EncoderM clicks per rotation = 850
  //       Logger.log(LoggerSystems.Drive, "left distance: " + Double.toString(leftEncoder.getDistance() * WheelDiameter * Math.PI / 850));
         return leftEncoder.getDistance() * WheelDiameter * Math.PI / 850; // In inches
     }

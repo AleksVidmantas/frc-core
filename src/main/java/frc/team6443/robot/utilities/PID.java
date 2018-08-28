@@ -27,6 +27,11 @@ public class PID {
     private int cycleCount;
     private boolean vomit;
 
+    /*
+    * P: proportional gain value
+    * I: integral
+    * D: derivative
+    * */
     public PID() {
         this(0.0, 0.0, 0.0, 0.0);
     }
