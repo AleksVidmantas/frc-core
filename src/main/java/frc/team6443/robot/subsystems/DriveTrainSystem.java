@@ -147,7 +147,6 @@ public class DriveTrainSystem extends Subsystem {
                 vector.y = leftStickX/1.28+(.1*Math.signum(leftStickX));
             }
         }
-
         tankDrive(vector.y, vector.x);
     }
 }

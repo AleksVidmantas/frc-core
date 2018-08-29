@@ -1,4 +1,4 @@
-package org.usfirst.frc.falcons6443.robot.utilities;
+package frc.team6443.robot.utilities;
 
 /**
  * This class was imported from Simbotics code. The original class calculates

@@ -1,11 +1,12 @@
 package frc.team6443.robot.hardware.joysticks;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
- * TODO: fix
+ * TODO: fix, check mappings
  * */
-public class Playstation {
+public class Playstation extends GenericHID{
 
     public Joystick controller;
 
@@ -117,4 +118,14 @@ public class Playstation {
         return controller.getRawButton(9);
     }
     public boolean eight() { return controller.getRawButton(10); }
+
+    @Override
+    public double getX(Hand hand) {
+        return 0;
+    }
+
+    @Override
+    public double getY(Hand hand) {
+        return 0;
+    }
 }

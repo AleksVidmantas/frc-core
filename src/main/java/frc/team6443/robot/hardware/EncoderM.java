@@ -7,24 +7,24 @@ import edu.wpi.first.wpilibj.Encoder;
  * named as so because the Encoder wpi class has a method that isn't named
  * appealingly
  * */
-public class EncoderM {
-    private Encoder encoder;
+public class EncoderM extends Encoder {
+
 
     public EncoderM(int channelA, int channelB) {
-        encoder = new Encoder(channelA, channelB);
+        super(channelA,channelB);
     }
 
     public double getDistance() {
-        encoder.getDistance();
+        getDistance();
 
-        return encoder.getRaw();
+        return getRaw();
     }
 
     public void reset() {
-        encoder.reset();
+        reset();
     }
 
     public void setReverseDirection(boolean reversed) {
-        encoder.setReverseDirection(reversed);
+        setReverseDirection(reversed);
     }
 }
