@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.XboxController;
 /**
  * Recreation of WPI's Xbox class.  This version is much easier to use.  Essentially still a GenericHID object.
  *
- * @author Patrick Higgins, Aleks Vidmantas
+ * @author Patrick Higgins, Aleks Vidmantas, Ivan Kenevich
  */
 public class Xbox extends XboxController {  //extends GenericHID for flexibility
 
