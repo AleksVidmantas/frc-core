@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.team6443.robot.commands.TeleopMode;
+import frc.team6443.robot.commands.autonomies.CrossLine;
 import frc.team6443.robot.subsystems.DriveTrainSystem;
 
 
@@ -33,7 +34,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         oi = new OI();
-        autonomy = null;
+        autonomy = new CrossLine(6,.5,5);
         teleop = new TeleopMode();
 
         //format 1 is kMJPEG.  This will be viewable in shuffleboard.

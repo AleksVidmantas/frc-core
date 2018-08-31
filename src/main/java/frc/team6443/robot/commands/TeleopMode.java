@@ -13,8 +13,8 @@ import frc.team6443.robot.hardware.joysticks.Xbox;
  */
 public class TeleopMode extends SimpleCommand {
 
-    Xbox x1;
-    Xbox x2;
+    private Xbox x1;
+    private Xbox x2;
 
     public TeleopMode() {
 

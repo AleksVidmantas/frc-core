@@ -16,11 +16,11 @@ import frc.team6443.robot.utilities.Timer;
  */
 public class CrossLine extends SimpleCommand {
 
-    double duration;
-    double speed;
-    double delay;
-    Timer timer;
-    boolean go;
+    private double duration;
+    private double speed;
+    private double delay;
+    private Timer timer;
+    private boolean go;
 
 
     public CrossLine(double duration){
@@ -44,10 +44,8 @@ public class CrossLine extends SimpleCommand {
     public void initialize(){
         timer.start();
 
-        if(timer.getElapsed() >= delay)
-            go = true; //in initialize to handle delays of 0
-        else
-            go = false;
+        //in initialize to handle delays of 0
+        go = timer.getElapsed() >= delay;
 
         setTimeout(duration);
     }

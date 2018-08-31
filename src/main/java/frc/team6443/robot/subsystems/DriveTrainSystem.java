@@ -117,13 +117,15 @@ public class DriveTrainSystem extends Subsystem {
     }
 
     //this data is only used for falconDrive
-    boolean shifted = false;
+    private boolean shifted = false;
     private double differential;
     private double power;
+
     public void upShift(){ shifted = true;}
     public void downShift(){shifted = false;}
-    double leftPwr;
-    double rightPwr;
+
+    private double leftPwr;
+    private double rightPwr;
 
     public void falconDrive(double leftStickX, double rightTrigger, double leftTrigger) {
         Vector2d vector = new Vector2d(0,0);
