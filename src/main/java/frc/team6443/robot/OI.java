@@ -7,7 +7,8 @@ import frc.team6443.robot.hardware.joysticks.Xbox;
 
 import java.util.HashMap;
 
-/**
+/** OPERATOR INTERFACE
+ *
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  *
@@ -26,7 +27,7 @@ public class OI {
     //GenericHID for flexibility.  GenericHID offers methods
     //useful to us.  Xbox() is a 6443 class that extends GenericHID by extending XboxController.  Also allows swappability.
     private static GenericHID primary;
-    private static GenericHID secondary;
+    private static GenericHID secondary; //TODO make these optional?
 
     private HashMap<String, Button> buttons;
 

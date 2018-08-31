@@ -31,6 +31,9 @@ public abstract class SimpleCommand extends Command {
         super(name);
     }
 
+    /**
+     * The initialize method is called the first time this Command is run after being started.
+     */
     public void initialize() {
     }
 

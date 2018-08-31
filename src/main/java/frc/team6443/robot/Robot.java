@@ -29,7 +29,6 @@ public class Robot extends TimedRobot {
     private Command teleop;
 
 
-
     /* This code is ran ONCE when the robot is TURNED ON.  No code that requires enabling should be put here */
     @Override
     public void robotInit() {
@@ -49,6 +48,7 @@ public class Robot extends TimedRobot {
     public void disabledInit() {
         Scheduler.getInstance().removeAll();
     }
+
 
     /*
      * Called periodically when the robot is in disabled mode.  The FPGA WILL stop the robot when this is

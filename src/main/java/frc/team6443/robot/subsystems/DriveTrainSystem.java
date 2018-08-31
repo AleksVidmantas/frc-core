@@ -71,7 +71,19 @@ public class DriveTrainSystem extends Subsystem {
         } else {
             drive.tankDrive(left, right);
         }
-//        Logger.log(LoggerSystems.Drive, "* {" + left + "}[" + right + "]" );
+    }
+
+    /**
+     * Allows for custom setting of motor power level across both sides.
+     *
+     * @param speed  the power for the motors.
+     */
+    public void tankDrive(double speed){
+        if(reversed){
+            drive.tankDrive(-speed, -speed);
+        }else{//TODO examine spacing standard
+            drive.tankDrive(speed, speed);
+        }
     }
 
     /**
@@ -87,25 +99,21 @@ public class DriveTrainSystem extends Subsystem {
 
     public double getLeftDistance(){
         // EncoderM clicks per rotation = 850
- //       Logger.log(LoggerSystems.Drive, "left distance: " + Double.toString(leftEncoder.getDistance() * WheelDiameter * Math.PI / 850));
         return leftEncoder.getDistance() * WheelDiameter * Math.PI / 850; // In inches
     }
 
     public double getRightDistance(){
-//        Logger.log(LoggerSystems.Drive, "right distance: " + Double.toString(rightEncoder.getDistance() * WheelDiameter * Math.PI / 850));
         return rightEncoder.getDistance() * WheelDiameter * Math.PI / 850; // In inches
     }
 
     //FIND A BETTER WAY!!!
     public double getLinearDistance(){
-//        Logger.log(LoggerSystems.Drive, "linear distance: " + Double.toString((getLeftDistance() + getRightDistance()) / 2));
         return (getLeftDistance() + getRightDistance()) / 2;
     }
 
     public void reset(){
         leftEncoder.reset();
         rightEncoder.reset();
-//        Logger.log(LoggerSystems.Drive, "reset drive encoders");
     }
 
     //this data is only used for falconDrive
@@ -145,7 +153,7 @@ public class DriveTrainSystem extends Subsystem {
                 leftPwr = leftStickX/1.28+(.1*Math.signum(leftStickX));
             }
         }
-        
+
         tankDrive(leftPwr, rightPwr);
     }
 }

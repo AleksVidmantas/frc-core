@@ -2,6 +2,7 @@ package frc.team6443.robot.commands;
 
 import frc.team6443.robot.OI;
 import frc.team6443.robot.Robot;
+import frc.team6443.robot.commands.autonomies.CrossLine;
 import frc.team6443.robot.hardware.joysticks.Xbox;
 
 /**
@@ -22,8 +23,6 @@ public class TeleopMode extends SimpleCommand {
 
         x1 = (Xbox)OI.getPrimary(); //x1 isn't a copy of OI's controller, it IS the controller. Notice the casting
         x2 = (Xbox)OI.getSecondary();
-
-
 
     }
 
