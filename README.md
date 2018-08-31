@@ -1,7 +1,6 @@
 # frc-core
-Core robot code that can be used every year.  
-#h1 the philosophy while designing the code base is as follows in descending importance:
-
+Core robot code that can be used every year implementing GradleRio's IDE agnostic setup.  
+## the philosophy while designing the code base is as follows in descending importance:
 1. Readability - FRC is aimed at coders who have JUST picked up programming.  If the code isn't
 readable by noobs, the point of FRC is kinda already lost.  The codebase is designed to be picked up
 as quickly as possible, using as few tricks as possible.
