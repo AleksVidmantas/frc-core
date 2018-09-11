@@ -6,7 +6,7 @@ package frc.team6443.robot;
  *
  * @author Christopher Medlin
  */
-public class RobotMap {
+public abstract class RobotMap {
     //any -1s are not being used and are yet to be specified
 
     //drive train motors
