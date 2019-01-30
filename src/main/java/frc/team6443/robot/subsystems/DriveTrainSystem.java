@@ -131,6 +131,7 @@ public class DriveTrainSystem extends Subsystem {
         Vector2d vector = new Vector2d(0,0);
         rightPwr = 0;
         leftPwr = 0;
+        power = 1;
 
         if (Math.abs(leftStickX) < .15) {
             differential = 0;
